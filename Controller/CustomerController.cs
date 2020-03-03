@@ -6,7 +6,7 @@ using Task18_BootcampRefactory.Model;
 namespace Task18_BootcampRefactory.Controllers
 {
     [ApiController]
-    [Route("Controller")]
+    [Route("[Controller]")]
     public class CustomerController : ControllerBase
     {
         private readonly Task18Context _context;

@@ -1,22 +1,23 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Validator/ModelsValidator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/UserController.cs">
     <Files>
-      <File FileName="Validator/RequestValidator.cs" Line="37" Column="6" />
-      <File FileName="Validator/ProductValidator.cs" Line="16" Column="6" />
-      <File FileName="Validator/CustomerPayValidator.cs" Line="18" Column="6" />
-      <File FileName="Validator/MerchantValidator.cs" Line="12" Column="6" />
-      <File FileName="Validator/CustomerValidator.cs" Line="26" Column="1" NotebookId="1" />
+      <File FileName="Controller/CustomerController.cs" Line="9" Column="5" />
+      <File FileName="Controller/CustomerPayController.cs" Line="1" Column="1" />
+      <File FileName="Controller/MerchantController.cs" Line="1" Column="1" />
+      <File FileName="Controller/ProductController.cs" Line="1" Column="1" />
+      <File FileName="Controller/UserController.cs" Line="1" Column="1" />
+      <File FileName="Validator/CustomerValidator.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Task18_BootcampRefactory" expanded="True">
             <Node name="Task18_BootcampRefactory" expanded="True">
-              <Node name="Controller" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="Validator" expanded="True">
-                <Node name="ModelsValidator.cs" selected="True" />
+              <Node name="Controller" expanded="True">
+                <Node name="UserController.cs" selected="True" />
               </Node>
+              <Node name="Model" expanded="True" />
+              <Node name="Validator" expanded="True" />
             </Node>
           </Node>
         </State>

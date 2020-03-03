@@ -8,7 +8,7 @@ namespace Task18_BootcampRefactory.Controller
 {
     [ApiController]
     [Authorize]
-    [Route("Controller")]
+    [Route("[Controller]")]
     public class MerchantController : ControllerBase
     {
         private readonly Task18Context _context;
