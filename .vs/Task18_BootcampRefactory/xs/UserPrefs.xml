@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Validator/ModelsValidator.cs">
+    <Files>
+      <File FileName="Validator/RequestValidator.cs" Line="37" Column="6" />
+      <File FileName="Validator/ProductValidator.cs" Line="16" Column="6" />
+      <File FileName="Validator/CustomerPayValidator.cs" Line="18" Column="6" />
+      <File FileName="Validator/MerchantValidator.cs" Line="12" Column="6" />
+      <File FileName="Validator/CustomerValidator.cs" Line="26" Column="1" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Task18_BootcampRefactory" expanded="True">
+            <Node name="Task18_BootcampRefactory" expanded="True">
+              <Node name="Controller" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Validator" expanded="True">
+                <Node name="ModelsValidator.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Task18__BootcampRefactory PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
