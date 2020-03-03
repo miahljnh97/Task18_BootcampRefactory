@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +34,8 @@ namespace Task18_BootcampRefactory
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMvc().AddFluentValidation();
+
             services.AddDbContext<Task18Context>(opt
             => opt.UseNpgsql("Host = 127.0.0.1; Username = postgres; Password = docker; Database = fluentValidation_db"));
 
