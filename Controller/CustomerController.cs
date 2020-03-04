@@ -74,6 +74,14 @@ namespace Task18_BootcampRefactory.Controllers
         [HttpPost]
         public IActionResult Post(RequestData<Customers> customer)
         {
+            if(customer.data.attributes.gender == "male")
+            {
+                customer.data.attributes.sex = Gender.male;
+            }
+            else if(customer.data.attributes.gender == "female")
+            {
+                customer.data.attributes.sex = Gender.female;
+            }
             _context.customers.Add(customer.data.attributes);
             _context.SaveChanges();
             return Ok(new

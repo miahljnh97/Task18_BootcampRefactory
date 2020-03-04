@@ -54,10 +54,10 @@ namespace Task18_BootcampRefactory
                 };
             });
 
-            services.AddTransient<IValidator<Customers>, CustomerValidator>()
-                .AddTransient<IValidator<Customers_Payment_Card>, CustomerPayValidator>()
-                .AddTransient<IValidator<Merchant>, MerchantValidator>()
-                .AddTransient<IValidator<Products>, ProductValidator>();
+            services.AddTransient<IValidator<RequestData<Customers>>, CustomerValidator>()
+                .AddTransient<IValidator<RequestData<Customers_Payment_Card>>, CustomerPayValidator>()
+                .AddTransient<IValidator<RequestData<Merchant>>, MerchantValidator>()
+                .AddTransient<IValidator<RequestData<Products>>, ProductValidator>();
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(requestValidator<,>));
         }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Task18_BootcampRefactory.Model;
@@ -9,9 +10,10 @@ using Task18_BootcampRefactory.Model;
 namespace Task18_BootcampRefactory.Migrations
 {
     [DbContext(typeof(Task18Context))]
-    partial class Task18ContextModelSnapshot : ModelSnapshot
+    [Migration("20200304040738_FVMigration")]
+    partial class FVMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
