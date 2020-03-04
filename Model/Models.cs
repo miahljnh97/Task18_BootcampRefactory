@@ -3,8 +3,8 @@ namespace Task18_BootcampRefactory.Model
 {
     public enum Gender
     {
-        male = 0,
-        female = 1
+        male,
+        female
     }
 
     public class Customers
@@ -14,12 +14,27 @@ namespace Task18_BootcampRefactory.Model
         public string username { get; set; }
         public DateTime birthdate { get; set; }
         public string password { get; set; }
-        public Gender gender { get; set; }
+        public Gender sex { get; set; }
+        public string gender { get; set; }
         public string email { get; set; }
         public string phone_number { get; set; }
         public DateTime created_at { get; set; } = DateTime.Now;
         public DateTime update_at { get; set; } = DateTime.Now;
     }
+
+    //public class CustomersResponse
+    //{
+    //    public int Id { get; set; }
+    //    public string full_name { get; set; }
+    //    public string username { get; set; }
+    //    public DateTime birthdate { get; set; }
+    //    public string password { get; set; }
+    //    public string gender { get; set; }
+    //    public string email { get; set; }
+    //    public string phone_number { get; set; }
+    //    public DateTime created_at { get; set; } = DateTime.Now;
+    //    public DateTime update_at { get; set; } = DateTime.Now;
+    //}
 
     public class Customers_Payment_Card
     {
@@ -64,5 +79,15 @@ namespace Task18_BootcampRefactory.Model
     {
         public string username { get; set; }
         public string password { get; set; }
+    }
+
+    public class RequestData<T>
+    {
+        public Data<T> data { get; set; }
+    }
+
+    public class Data<T>
+    {
+        public T attributes { get; set; }
     }
 }

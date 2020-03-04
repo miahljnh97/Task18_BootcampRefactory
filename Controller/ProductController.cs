@@ -7,6 +7,7 @@ using Task18_BootcampRefactory.Model;
 namespace Task18_BootcampRefactory.Controller
 {
     [ApiController]
+    [Authorize]
     [Route("[Controller]")]
     public class ProductController : ControllerBase
     {
@@ -53,13 +54,13 @@ namespace Task18_BootcampRefactory.Controller
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Products proput)
+        public IActionResult Put(int id, RequestData<Products> proput)
         {
             var pro = _context.products.First(i => i.Id == id);
 
-            pro.name = proput.name;
-            pro.price = proput.price;
-            pro.created_at = proput.created_at;
+            pro.name = proput.data.attributes.name;
+            pro.price = proput.data.attributes.price;
+            pro.created_at = proput.data.attributes.created_at;
             pro.update_at = DateTime.Now;
 
             _context.products.Update(pro);
@@ -68,9 +69,9 @@ namespace Task18_BootcampRefactory.Controller
         }
 
         [HttpPost]
-        public IActionResult Post(Products product)
+        public IActionResult Post(RequestData<Products> product)
         {
-            _context.products.Add(product);
+            _context.products.Add(product.data.attributes);
             _context.SaveChanges();
             return Ok(new
             {

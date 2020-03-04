@@ -54,16 +54,16 @@ namespace Task18_BootcampRefactory.Controller
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Merchant merput)
+        public IActionResult Put(int id, RequestData<Merchant> merput)
         {
             var mer = _context.merchants.First(i => i.Id == id);
 
-            mer.name = merput.name;
-            mer.image = merput.image;
-            mer.email = merput.email;
-            mer.address = merput.address;
-            mer.rating = merput.rating;
-            mer.created_at = merput.created_at;
+            mer.name = merput.data.attributes.name;
+            mer.image = merput.data.attributes.image;
+            mer.email = merput.data.attributes.email;
+            mer.address = merput.data.attributes.address;
+            mer.rating = merput.data.attributes.rating;
+            mer.created_at = merput.data.attributes.created_at;
             mer.update_at = DateTime.Now;
 
             _context.merchants.Update(mer);
@@ -72,9 +72,9 @@ namespace Task18_BootcampRefactory.Controller
         }
 
         [HttpPost]
-        public IActionResult Post(Merchant merchant)
+        public IActionResult Post(RequestData<Merchant> merchant)
         {
-            _context.merchants.Add(merchant);
+            _context.merchants.Add(merchant.data.attributes);
             _context.SaveChanges();
             return Ok(new
             {

@@ -52,18 +52,18 @@ namespace Task18_BootcampRefactory.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Customers customerput)
+        public IActionResult Put(int id, RequestData<Customers> customerput)
         {
             var customer = _context.customers.First(i => i.Id == id);
 
-            customer.full_name = customerput.full_name;
-            customer.username = customerput.username;
-            customer.birthdate = customerput.birthdate;
-            customer.password = customerput.password;
-            customer.gender = customerput.gender;
-            customer.email = customerput.email;
-            customer.phone_number = customerput.phone_number;
-            customer.created_at = customer.created_at;
+            customer.full_name = customerput.data.attributes.full_name;
+            customer.username = customerput.data.attributes.username;
+            customer.birthdate = customerput.data.attributes.birthdate;
+            customer.password = customerput.data.attributes.password;
+            customer.gender = customerput.data.attributes.gender;
+            customer.email = customerput.data.attributes.email;
+            customer.phone_number = customerput.data.attributes.phone_number;
+            customer.created_at = customerput.data.attributes.created_at;
             customer.update_at = DateTime.Now;
 
             _context.customers.Update(customer);
@@ -72,9 +72,9 @@ namespace Task18_BootcampRefactory.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Customers customer)
+        public IActionResult Post(RequestData<Customers> customer)
         {
-            _context.customers.Add(customer);
+            _context.customers.Add(customer.data.attributes);
             _context.SaveChanges();
             return Ok(new
             {

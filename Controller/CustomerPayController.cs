@@ -54,17 +54,17 @@ namespace Task18_BootcampRefactory.Controller
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Customers_Payment_Card cust)
+        public IActionResult Put(int id, RequestData<Customers_Payment_Card> cust)
         {
             var custPay = _context.customerPayCard.First(i => i.Id == id);
 
-            custPay.customer_id = cust.customer_id;
-            custPay.name_on_card = cust.name_on_card;
-            custPay.exp_month = cust.exp_month;
-            custPay.exp_year = cust.exp_year;
-            custPay.postal_code = cust.postal_code;
-            custPay.credit_card_number = cust.credit_card_number;
-            custPay.created_at = cust.created_at;
+            custPay.customer_id = cust.data.attributes.customer_id;
+            custPay.name_on_card = cust.data.attributes.name_on_card;
+            custPay.exp_month = cust.data.attributes.exp_month;
+            custPay.exp_year = cust.data.attributes.exp_year;
+            custPay.postal_code = cust.data.attributes.postal_code;
+            custPay.credit_card_number = cust.data.attributes.credit_card_number;
+            custPay.created_at = cust.data.attributes.created_at;
             custPay.update_at = DateTime.Now;
 
             _context.customerPayCard.Update(custPay);
@@ -73,9 +73,9 @@ namespace Task18_BootcampRefactory.Controller
         }
 
         [HttpPost]
-        public IActionResult Post(Customers_Payment_Card custPay)
+        public IActionResult Post(RequestData<Customers_Payment_Card> custPay)
         {
-            _context.customerPayCard.Add(custPay);
+            _context.customerPayCard.Add(custPay.data.attributes);
             _context.SaveChanges();
             return Ok(new
             {
