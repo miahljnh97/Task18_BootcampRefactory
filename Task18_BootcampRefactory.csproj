@@ -40,5 +40,11 @@
     <Folder Include="Application\UseCases\MerchantMediator\Request\" />
     <Folder Include="Application\UseCases\MerchantMediator\Queries\GetMerchant\" />
     <Folder Include="Application\UseCases\MerchantMediator\Queries\GetMerchants\" />
+    <Folder Include="Application\UseCases\ProductMediator\" />
+    <Folder Include="Application\UseCases\ProductMediator\Commands\" />
+    <Folder Include="Application\UseCases\ProductMediator\Queries\" />
+    <Folder Include="Application\UseCases\ProductMediator\Request\" />
+    <Folder Include="Application\UseCases\ProductMediator\Queries\GetProduct\" />
+    <Folder Include="Application\UseCases\ProductMediator\Queries\GetProducts\" />
   </ItemGroup>
 </Project>

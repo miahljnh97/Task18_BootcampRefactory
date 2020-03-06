@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Request;
 using Task18_BootcampRefactory.Model;
 
 namespace Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Commands
 {
-    public class DeleteMerchantCommandHandler
+    public class DeleteMerchantCommandHandler : IRequestHandler<DeleteMerchantCommand, MerchantDTO>
     {
         private readonly Task18Context _context;
         public DeleteMerchantCommandHandler(Task18Context context)

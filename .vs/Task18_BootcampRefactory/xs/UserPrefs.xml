@@ -1,20 +1,9 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Controller/MerchantController.cs">
     <Files>
-      <File FileName="Application/UseCases/MerchantMediator/Queries/GetMerchant/GetMerchantQueryHandler.cs" Line="38" Column="41" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPays/GetCustomerPaysDTO.cs" Line="1" Column="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPay/GetCustomerPayDTO.cs" Line="1" Column="1" />
-      <File FileName="Controller/MerchantController.cs" Line="1" Column="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/DeleteCustomerPayCommand.cs" Line="10" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/DeleteCustomerPayCommandHandler.cs" Line="13" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PostCustomerPayCommand.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PostCustomerPayCommandHandler.cs" Line="12" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommand.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs" Line="31" Column="41" NotebookId="1" />
-      <File FileName="Application/UseCases/MerchantMediator/Queries/GetMerchant/GetMerchantDTO.cs" Line="21" Column="1" NotebookId="1" />
-      <File FileName="Controller/CustomerPayController.cs" Line="29" Column="54" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomer/GetCustomerQueryHandler.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomer/GetCustomerDTO.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Application/UseCases/MerchantMediator/Request/MerchantDTO.cs" Line="1" Column="1" />
+      <File FileName="Controller/ProductController.cs" Line="1" Column="1" />
+      <File FileName="Controller/MerchantController.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,25 +13,28 @@
               <Node name="Application" expanded="True">
                 <Node name="UseCases" expanded="True">
                   <Node name="CustomerMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
                       <Node name="GetCustomer" expanded="True" />
-                      <Node name="GetCustomers" expanded="True" />
                     </Node>
                   </Node>
                   <Node name="CustomerPayMediator" expanded="True">
                     <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
                       <Node name="GetCustomerPay" expanded="True" />
-                      <Node name="GetCustomerPays" expanded="True" />
                     </Node>
-                    <Node name="Request" expanded="True" />
                   </Node>
                   <Node name="MerchantMediator" expanded="True">
                     <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
-                      <Node name="GetMerchant" expanded="True" />
                       <Node name="GetMerchants" expanded="True" />
+                    </Node>
+                    <Node name="Request" expanded="True" />
+                  </Node>
+                  <Node name="ProductMediator" expanded="True">
+                    <Node name="Commands" expanded="True" />
+                    <Node name="Queries" expanded="True">
+                      <Node name="GetProduct" expanded="True" />
+                      <Node name="GetProducts" expanded="True" />
                     </Node>
                     <Node name="Request" expanded="True" />
                   </Node>
