@@ -16,7 +16,5 @@ namespace Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries
         public string email { get; set; }
         public string address { get; set; }
         public double rating { get; set; }
-        public DateTime created_at { get; set; } = DateTime.Now;
-        public DateTime update_at { get; set; } = DateTime.Now;
     }
 }
