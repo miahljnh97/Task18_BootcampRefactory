@@ -12,7 +12,7 @@ using Task18_BootcampRefactory.Model;
 namespace Task18_BootcampRefactory.Controller
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("[Controller]")]
     public class MerchantController : ControllerBase
     {

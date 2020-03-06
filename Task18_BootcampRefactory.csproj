@@ -46,5 +46,8 @@
     <Folder Include="Application\UseCases\ProductMediator\Request\" />
     <Folder Include="Application\UseCases\ProductMediator\Queries\GetProduct\" />
     <Folder Include="Application\UseCases\ProductMediator\Queries\GetProducts\" />
+    <Folder Include="Application\UseCases\UserMediator\" />
+    <Folder Include="Application\UseCases\UserMediator\Commands\" />
+    <Folder Include="Application\UseCases\UserMediator\Request\" />
   </ItemGroup>
 </Project>

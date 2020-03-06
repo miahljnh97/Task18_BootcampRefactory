@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Controller/MerchantController.cs">
     <Files>
-      <File FileName="Application/UseCases/MerchantMediator/Request/MerchantDTO.cs" Line="1" Column="1" />
-      <File FileName="Controller/ProductController.cs" Line="1" Column="1" />
-      <File FileName="Controller/MerchantController.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Controller/ProductController.cs" Line="26" Column="46" />
+      <File FileName="Controller/CustomerController.cs" Line="1" Column="1" />
+      <File FileName="Controller/CustomerPayController.cs" Line="15" Column="16" />
+      <File FileName="Controller/MerchantController.cs" Line="15" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,30 +13,9 @@
             <Node name="Task18_BootcampRefactory" expanded="True">
               <Node name="Application" expanded="True">
                 <Node name="UseCases" expanded="True">
-                  <Node name="CustomerMediator" expanded="True">
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetCustomer" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="CustomerPayMediator" expanded="True">
+                  <Node name="ProductMediator" expanded="True" />
+                  <Node name="UserMediator" expanded="True">
                     <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetCustomerPay" expanded="True" />
-                    </Node>
-                  </Node>
-                  <Node name="MerchantMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetMerchants" expanded="True" />
-                    </Node>
-                    <Node name="Request" expanded="True" />
-                  </Node>
-                  <Node name="ProductMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetProduct" expanded="True" />
-                      <Node name="GetProducts" expanded="True" />
-                    </Node>
                     <Node name="Request" expanded="True" />
                   </Node>
                 </Node>
