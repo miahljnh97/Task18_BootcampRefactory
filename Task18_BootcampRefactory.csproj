@@ -34,5 +34,10 @@
     <Folder Include="Application\UseCases\CustomerPayMediator\Request\" />
     <Folder Include="Application\UseCases\CustomerPayMediator\Queries\GetCustomerPay\" />
     <Folder Include="Application\UseCases\CustomerPayMediator\Queries\GetCustomerPays\" />
+    <Folder Include="Application\UseCases\MerchantMediator\" />
+    <Folder Include="Application\UseCases\MerchantMediator\Commands\" />
+    <Folder Include="Application\UseCases\MerchantMediator\Queries\" />
+    <Folder Include="Application\UseCases\MerchantMediator\Request\" />
+    <Folder Include="Application\UseCases\MerchantMediator\Queries\GetMerchant\" />
   </ItemGroup>
 </Project>

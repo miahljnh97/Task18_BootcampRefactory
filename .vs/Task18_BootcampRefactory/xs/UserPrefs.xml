@@ -1,8 +1,13 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/CustomerPayController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPay/GetCustomerPayDTO.cs">
     <Files>
-      <File FileName="Controller/CustomerPayController.cs" Line="1" Column="1" />
-      <File FileName="Controller/CustomerController.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Controller/CustomerPayController.cs" Line="59" Column="67" />
+      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPays/GetCustomerPaysQueryHandler.cs" Line="28" Column="41" />
+      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPays/GetCustomerPaysDTO.cs" Line="1" Column="1" />
+      <File FileName="Application/UseCases/CustomerPayMediator/Request/CustomerPayDTO.cs" Line="13" Column="1" />
+      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPay/GetCustomerPayDTO.cs" Line="12" Column="6" />
+      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomers/GetCustomersQueryHandler.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomers/GetCustomersDTO.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,16 +25,16 @@
                   <Node name="CustomerPayMediator" expanded="True">
                     <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
-                      <Node name="GetCustomerPay" expanded="True" />
+                      <Node name="GetCustomerPay" expanded="True">
+                        <Node name="GetCustomerPayDTO.cs" selected="True" />
+                      </Node>
                       <Node name="GetCustomerPays" expanded="True" />
                     </Node>
                     <Node name="Request" expanded="True" />
                   </Node>
                 </Node>
               </Node>
-              <Node name="Controller" expanded="True">
-                <Node name="CustomerPayController.cs" selected="True" />
-              </Node>
+              <Node name="Controller" expanded="True" />
               <Node name="Migrations" expanded="True" />
               <Node name="Model" expanded="True" />
               <Node name="Validator" expanded="True" />
