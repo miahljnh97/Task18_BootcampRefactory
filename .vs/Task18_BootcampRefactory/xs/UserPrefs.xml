@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/CustomerPayController.cs">
     <Files>
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommand.cs" Line="1" Column="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs" Line="8" Column="111" />
+      <File FileName="Controller/CustomerPayController.cs" Line="1" Column="1" />
+      <File FileName="Controller/CustomerController.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,14 +12,13 @@
               <Node name="Application" expanded="True">
                 <Node name="UseCases" expanded="True">
                   <Node name="CustomerMediator" expanded="True">
+                    <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
                       <Node name="GetCustomers" expanded="True" />
                     </Node>
                   </Node>
                   <Node name="CustomerPayMediator" expanded="True">
-                    <Node name="Commands" expanded="True">
-                      <Node name="PutCustomerPayCommandHandler.cs" selected="True" />
-                    </Node>
+                    <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
                       <Node name="GetCustomerPay" expanded="True" />
                       <Node name="GetCustomerPays" expanded="True" />
@@ -28,7 +27,9 @@
                   </Node>
                 </Node>
               </Node>
-              <Node name="Controller" expanded="True" />
+              <Node name="Controller" expanded="True">
+                <Node name="CustomerPayController.cs" selected="True" />
+              </Node>
               <Node name="Migrations" expanded="True" />
               <Node name="Model" expanded="True" />
               <Node name="Validator" expanded="True" />

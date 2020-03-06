@@ -1,88 +1,65 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Commands;
+using Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Queries.GetCustomerPay;
+using Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Queries.GetCustomerPays;
 using Task18_BootcampRefactory.Model;
 
 namespace Task18_BootcampRefactory.Controller
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("[Controller]")]
     public class CustomerPaymentController : ControllerBase
     {
-        private readonly Task18Context _context;
+        private IMediator _mediatr;
 
-        public CustomerPaymentController(Task18Context context)
+        public CustomerPaymentController(IMediator mediator)
         {
-            _context = context;
+            _mediatr = mediator;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            var custPay = _context.customerPayCard;
+            var custPay = new GetCustomerPaysQuery();
 
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = custPay
-            });
+            return Ok(await _mediatr.Send(custPay));
         }
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
-        {
-            var custPay = _context.customerPayCard.First(i => i.Id == id);
 
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = custPay
-            });
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetById(int id)
+        {
+            var custPay = new GetCustomerPayQuery(id);
+
+            return Ok(await _mediatr.Send(custPay));
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteById(int id)
         {
-            var custPay = _context.customerPayCard.First(i => i.Id == id);
-
-            _context.customerPayCard.Remove(custPay);
-            _context.SaveChanges();
-            return Ok(custPay);
+            var custPay = new DeleteCustomerPayCommand(id);
+            var result = await _mediatr.Send(custPay);
+            return result != null ? (IActionResult)Ok(new { Message = "success" }) : NotFound(new { Message = "Customer not found" });
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, RequestData<Customers_Payment_Card> cust)
+        public async Task<IActionResult> Put(int id, PutCustomerPayCommand data)
         {
-            var custPay = _context.customerPayCard.First(i => i.Id == id);
-
-            custPay.customer_id = cust.data.attributes.customer_id;
-            custPay.name_on_card = cust.data.attributes.name_on_card;
-            custPay.exp_month = cust.data.attributes.exp_month;
-            custPay.exp_year = cust.data.attributes.exp_year;
-            custPay.postal_code = cust.data.attributes.postal_code;
-            custPay.credit_card_number = cust.data.attributes.credit_card_number;
-            custPay.created_at = cust.data.attributes.created_at;
-            custPay.update_at = DateTime.Now;
-
-            _context.customerPayCard.Update(custPay);
-            _context.SaveChanges();
-            return Ok(custPay);
+            data.Data.Attributes.Id = id;
+            var result = await _mediatr.Send(data);
+            return Ok(result);
         }
 
         [HttpPost]
-        public IActionResult Post(RequestData<Customers_Payment_Card> custPay)
+        public async Task<IActionResult> PostAsync(PostCustomerPayCommand data)
         {
-            _context.customerPayCard.Add(custPay.data.attributes);
-            _context.SaveChanges();
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = custPay
-            });
+            var result = await _mediatr.Send(data);
+            return Ok(result);
         }
     }
 }
