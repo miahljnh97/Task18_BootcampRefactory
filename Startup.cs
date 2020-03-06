@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Hangfire;
+using Hangfire.PostgreSql;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +46,7 @@ namespace Task18_BootcampRefactory
             services.AddDbContext<Task18Context>(opt
             => opt.UseNpgsql("Host = 127.0.0.1; Username = postgres; Password = docker; Database = fluentValidation_db"));
 
+
             services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -64,6 +67,9 @@ namespace Task18_BootcampRefactory
                 .AddTransient<IValidator<RequestData<Products>>, ProductValidator>();
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(requestValidator<,>));
+
+            services.AddHangfire(configuration => configuration
+            .UsePostgreSqlStorage("Host = 127.0.0.1; Username = postgres; Password = docker; Database = backgroundService_db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +79,9 @@ namespace Task18_BootcampRefactory
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHangfireDashboard();
+            BackgroundJob.Enqueue(() => Console.WriteLine("Task Run"));
 
             app.UseRouting();
 

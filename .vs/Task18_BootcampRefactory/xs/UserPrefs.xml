@@ -1,31 +1,14 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controller/MerchantController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
     <Files>
-      <File FileName="Controller/ProductController.cs" Line="26" Column="46" />
-      <File FileName="Controller/CustomerController.cs" Line="1" Column="1" />
-      <File FileName="Controller/CustomerPayController.cs" Line="15" Column="16" />
-      <File FileName="Controller/MerchantController.cs" Line="15" Column="16" />
+      <File FileName="Startup.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Task18_BootcampRefactory" expanded="True">
             <Node name="Task18_BootcampRefactory" expanded="True">
-              <Node name="Application" expanded="True">
-                <Node name="UseCases" expanded="True">
-                  <Node name="ProductMediator" expanded="True" />
-                  <Node name="UserMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Request" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Controller" expanded="True">
-                <Node name="MerchantController.cs" selected="True" />
-              </Node>
-              <Node name="Migrations" expanded="True" />
-              <Node name="Model" expanded="True" />
-              <Node name="Validator" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
