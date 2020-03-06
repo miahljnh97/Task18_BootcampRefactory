@@ -1,87 +1,65 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Commands;
+using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries.GetMerchant;
+using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries.GetMerchants;
 using Task18_BootcampRefactory.Model;
 
 namespace Task18_BootcampRefactory.Controller
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("[Controller]")]
     public class MerchantController : ControllerBase
     {
-        private readonly Task18Context _context;
+        private IMediator _mediatr;
 
-        public MerchantController(Task18Context context)
+        public MerchantController(IMediator mediator)
         {
-            _context = context;
+            _mediatr = mediator;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            var merchant = _context.merchants;
+            var merchant = new GetMerchantsQuery();
 
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = merchant
-            });
+            return Ok(await _mediatr.Send(merchant));
         }
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
-        {
-            var merchant = _context.merchants.First(i => i.Id == id);
 
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = merchant
-            });
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetById(int id)
+        {
+            var merchant = new GetMerchantQuery(id);
+
+            return Ok(await _mediatr.Send(merchant));
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteById(int id)
         {
-            var merchant = _context.merchants.First(i => i.Id == id);
-
-            _context.merchants.Remove(merchant);
-            _context.SaveChanges();
-            return Ok(merchant);
+            var merchant = new DeleteMerchantCommand(id);
+            var result = await _mediatr.Send(merchant);
+            return result != null ? (IActionResult)Ok(new { Message = "success" }) : NotFound(new { Message = "Customer not found" });
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, RequestData<Merchant> merput)
+        public async Task<IActionResult> Put(int id, PutMerchantCommand data)
         {
-            var mer = _context.merchants.First(i => i.Id == id);
-
-            mer.name = merput.data.attributes.name;
-            mer.image = merput.data.attributes.image;
-            mer.email = merput.data.attributes.email;
-            mer.address = merput.data.attributes.address;
-            mer.rating = merput.data.attributes.rating;
-            mer.created_at = merput.data.attributes.created_at;
-            mer.update_at = DateTime.Now;
-
-            _context.merchants.Update(mer);
-            _context.SaveChanges();
-            return Ok(mer);
+            data.Data.Attributes.Id = id;
+            var result = await _mediatr.Send(data);
+            return Ok(result);
         }
 
         [HttpPost]
-        public IActionResult Post(RequestData<Merchant> merchant)
+        public async Task<IActionResult> PostAsync(PostMerchantCommand data)
         {
-            _context.merchants.Add(merchant.data.attributes);
-            _context.SaveChanges();
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = merchant
-            });
+            var result = await _mediatr.Send(data);
+            return Ok(result);
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Comm
     public class DeleteCustomerPayCommand : IRequest<CustomerPayDTO>
     {
         public int Id { get; set; }
+
         public DeleteCustomerPayCommand(int id)
         {
             Id = id;

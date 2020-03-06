@@ -39,5 +39,6 @@
     <Folder Include="Application\UseCases\MerchantMediator\Queries\" />
     <Folder Include="Application\UseCases\MerchantMediator\Request\" />
     <Folder Include="Application\UseCases\MerchantMediator\Queries\GetMerchant\" />
+    <Folder Include="Application\UseCases\MerchantMediator\Queries\GetMerchants\" />
   </ItemGroup>
 </Project>
