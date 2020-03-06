@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -17,6 +18,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Queries.GetCustomer;
 using Task18_BootcampRefactory.Model;
 using Task18_BootcampRefactory.Validator;
 
@@ -36,6 +38,8 @@ namespace Task18_BootcampRefactory
         {
             services.AddControllers();
             services.AddMvc().AddFluentValidation();
+
+            services.AddMediatR(typeof(GetCustomerQueryHandler).GetTypeInfo().Assembly);
 
             services.AddDbContext<Task18Context>(opt
             => opt.UseNpgsql("Host = 127.0.0.1; Username = postgres; Password = docker; Database = fluentValidation_db"));

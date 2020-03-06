@@ -20,5 +20,19 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Validator\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\UseCases\" />
+    <Folder Include="Application\UseCases\CustomerMediator\" />
+    <Folder Include="Application\UseCases\CustomerMediator\Commands\" />
+    <Folder Include="Application\UseCases\CustomerMediator\Queries\" />
+    <Folder Include="Application\UseCases\CustomerMediator\Request\" />
+    <Folder Include="Application\UseCases\CustomerMediator\Queries\GetCustomer\" />
+    <Folder Include="Application\UseCases\CustomerMediator\Queries\GetCustomers\" />
+    <Folder Include="Application\UseCases\CustomerPayMediator\" />
+    <Folder Include="Application\UseCases\CustomerPayMediator\Commands\" />
+    <Folder Include="Application\UseCases\CustomerPayMediator\Queries\" />
+    <Folder Include="Application\UseCases\CustomerPayMediator\Request\" />
+    <Folder Include="Application\UseCases\CustomerPayMediator\Queries\GetCustomerPay\" />
+    <Folder Include="Application\UseCases\CustomerPayMediator\Queries\GetCustomerPays\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Commands;
+using Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Queries.GetCustomer;
+using Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Queries.GetCustomers;
 using Task18_BootcampRefactory.Model;
 
 namespace Task18_BootcampRefactory.Controllers
@@ -9,87 +14,49 @@ namespace Task18_BootcampRefactory.Controllers
     [Route("[Controller]")]
     public class CustomerController : ControllerBase
     {
-        private readonly Task18Context _context;
-
-        public CustomerController(Task18Context context)
+        private IMediator _mediatr;
+        public CustomerController(IMediator mediator)
         {
-            _context = context;
+            _mediatr = mediator;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<ActionResult> Get()
         {
-            var customer = _context.customers;
+            var customer = new GetCustomersQuery();
 
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = customer
-            });
+            return Ok(await _mediatr.Send(customer));
         }
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
-        {
-            var customer = _context.customers.First(i => i.Id == id);
 
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = customer
-            });
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetById(int id)
+        {
+            var customer = new GetCustomerQuery(id);
+
+            return Ok(await _mediatr.Send(customer));
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteById(int id)
         {
-            var customer = _context.customers.First(i => i.Id == id);
-
-            _context.customers.Remove(customer);
-            _context.SaveChanges();
-            return Ok(customer);
+            var customer = new DeleteCustomerCommand(id);
+            var result = await _mediatr.Send(customer);
+            return result != null ? (IActionResult)Ok(new { Message = "success" }) : NotFound(new { Message = "Customer not found" });
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, RequestData<Customers> customerput)
+        public async Task<IActionResult> Put(int id, PutCustomerCommand data)
         {
-            var customer = _context.customers.First(i => i.Id == id);
-
-            customer.full_name = customerput.data.attributes.full_name;
-            customer.username = customerput.data.attributes.username;
-            customer.birthdate = customerput.data.attributes.birthdate;
-            customer.password = customerput.data.attributes.password;
-            customer.gender = customerput.data.attributes.gender;
-            customer.email = customerput.data.attributes.email;
-            customer.phone_number = customerput.data.attributes.phone_number;
-            customer.created_at = customerput.data.attributes.created_at;
-            customer.update_at = DateTime.Now;
-
-            _context.customers.Update(customer);
-            _context.SaveChanges();
-            return Ok(customer);
+            data.Data.Attributes.Id = id;
+            var result = await _mediatr.Send(data);
+            return Ok(result);
         }
 
         [HttpPost]
-        public IActionResult Post(RequestData<Customers> customer)
+        public async Task<IActionResult> PostAsync(PostCustomerCommand data)
         {
-            if(customer.data.attributes.gender == "male")
-            {
-                customer.data.attributes.sex = Gender.male;
-            }
-            else if(customer.data.attributes.gender == "female")
-            {
-                customer.data.attributes.sex = Gender.female;
-            }
-            _context.customers.Add(customer.data.attributes);
-            _context.SaveChanges();
-            return Ok(new
-            {
-                message = "success retrieve data",
-                status = true,
-                data = customer
-            });
+            var result = await _mediatr.Send(data);
+            return Ok(result);
         }
     }
 }
