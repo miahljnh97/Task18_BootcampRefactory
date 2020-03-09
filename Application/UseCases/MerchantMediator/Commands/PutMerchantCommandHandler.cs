@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries.GetMerchant;
 using Task18_BootcampRefactory.Model;
@@ -28,6 +29,8 @@ namespace Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Command
             data.rating = request.Data.Attributes.rating;
 
             _context.SaveChanges();
+
+            BackgroundJob.Enqueue(() => Console.WriteLine("Put Merchant has been done."));
             return new GetMerchantDTO
             {
                 Success = true,

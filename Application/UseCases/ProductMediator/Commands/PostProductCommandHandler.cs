@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.ProductMediator.Queries.GetProduct;
 using Task18_BootcampRefactory.Model;
@@ -20,6 +21,8 @@ namespace Task18_BootcampRefactory.Application.UseCases.ProductMediator.Commands
         {
             _context.products.Add(request.Data.Attributes);
             await _context.SaveChangesAsync();
+
+            BackgroundJob.Enqueue(() => Console.WriteLine("Post Product has been done."));
             return new GetProductDTO
             {
                 Message = "Success retreiving data",

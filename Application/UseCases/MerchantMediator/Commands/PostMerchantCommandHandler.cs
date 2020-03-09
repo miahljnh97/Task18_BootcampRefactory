@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries.GetMerchant;
 using Task18_BootcampRefactory.Model;
@@ -19,6 +20,8 @@ namespace Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Command
         {
             _context.merchants.Add(request.Data.Attributes);
             await _context.SaveChangesAsync();
+
+            BackgroundJob.Enqueue(() => Console.WriteLine("Post Merchant has been done."));
             return new GetMerchantDTO
             {
                 Message = "Success retreiving data",

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Queries.GetCustomer;
 using Task18_BootcampRefactory.Model;
@@ -27,6 +28,8 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Command
             data.phone_number = request.Data.Attributes.phone_number;
             data.update_at = DateTime.Now;
             _context.SaveChanges();
+
+            BackgroundJob.Enqueue(() => Console.WriteLine("Put Customer has been done."));
             return new GetCustomerDTO
             {
                 Message = "Success retreiving data",

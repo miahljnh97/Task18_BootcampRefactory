@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.ProductMediator.Queries.GetProduct;
 using Task18_BootcampRefactory.Model;
@@ -25,6 +26,8 @@ namespace Task18_BootcampRefactory.Application.UseCases.ProductMediator.Commands
             data.price = request.Data.Attributes.price;
 
             _context.SaveChanges();
+
+            BackgroundJob.Enqueue(() => Console.WriteLine("Put Product has been done."));
             return new GetProductDTO
             {
                 Success = true,

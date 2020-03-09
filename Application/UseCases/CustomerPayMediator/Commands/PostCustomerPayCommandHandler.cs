@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Queries.GetCustomerPay;
 using Task18_BootcampRefactory.Model;
@@ -19,6 +20,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Comm
         {
             _context.customerPayCard.Add(request.Data.Attributes);
             await _context.SaveChangesAsync();
+            BackgroundJob.Enqueue(() => Console.WriteLine("Post Customer Payment Card has been done."));
             return new GetCustomerPayDTO
             {
                 Message = "Success retreiving data",

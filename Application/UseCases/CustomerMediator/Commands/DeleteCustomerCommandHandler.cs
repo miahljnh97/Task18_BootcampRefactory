@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Request;
 using Task18_BootcampRefactory.Model;
@@ -27,6 +28,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerMediator.Command
             _context.customers.Remove(data);
             await _context.SaveChangesAsync();
 
+            BackgroundJob.Enqueue(() => Console.WriteLine("Delete Customer has been done."));
             return new CustomerDTO { Message = "Successfull", Success = true };
         }
     }

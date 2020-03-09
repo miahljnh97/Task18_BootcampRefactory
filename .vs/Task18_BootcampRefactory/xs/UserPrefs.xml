@@ -1,14 +1,12 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs">
     <Files>
-      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomer/GetCustomerQueryHandler.cs" Line="37" Column="53" />
-      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomers/GetCustomersQueryHandler.cs" Line="42" Column="13" />
-      <File FileName="Application/UseCases/MerchantMediator/Queries/GetMerchant/GetMerchantQueryHandler.cs" Line="1" Column="1" />
-      <File FileName="Application/UseCases/MerchantMediator/Queries/GetMerchants/GetMerchantsQueryHandler.cs" Line="40" Column="68" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPay/GetCustomerPayQueryHandler.cs" Line="50" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Queries/GetCustomerPays/GetCustomerPaysQueryHandler.cs" Line="41" Column="13" NotebookId="1" />
-      <File FileName="Application/UseCases/ProductMediator/Queries/GetProduct/GetProductQueryHandler.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Application/UseCases/ProductMediator/Queries/GetProducts/GetProductsQueryHandler.cs" Line="39" Column="67" NotebookId="1" />
+      <File FileName="Application/UseCases/CustomerMediator/Commands/DeleteCustomerCommandHandler.cs" Line="31" Column="66" />
+      <File FileName="Application/UseCases/CustomerPayMediator/Commands/DeleteCustomerPayCommandHandler.cs" Line="32" Column="86" />
+      <File FileName="Application/UseCases/MerchantMediator/Commands/DeleteMerchantCommandHandler.cs" Line="31" Column="73" />
+      <File FileName="Application/UseCases/ProductMediator/Commands/DeleteProductCommandHandler.cs" Line="32" Column="72" />
+      <File FileName="Application/UseCases/CustomerMediator/Commands/PutCustomerCommandHandler.cs" Line="32" Column="16" />
+      <File FileName="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs" Line="32" Column="23" />
       <File FileName="Startup.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
@@ -19,24 +17,18 @@
               <Node name="Application" expanded="True">
                 <Node name="UseCases" expanded="True">
                   <Node name="CustomerMediator" expanded="True">
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetCustomer" expanded="True" />
-                      <Node name="GetCustomers" expanded="True" />
-                    </Node>
+                    <Node name="Commands" expanded="True" />
                   </Node>
                   <Node name="CustomerPayMediator" expanded="True">
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetCustomerPay" expanded="True" />
-                      <Node name="GetCustomerPays" expanded="True" />
+                    <Node name="Commands" expanded="True">
+                      <Node name="PutCustomerPayCommandHandler.cs" selected="True" />
                     </Node>
                   </Node>
                   <Node name="MerchantMediator" expanded="True">
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetMerchant" expanded="True" />
-                      <Node name="GetMerchants" expanded="True" />
-                    </Node>
+                    <Node name="Commands" expanded="True" />
                   </Node>
                   <Node name="ProductMediator" expanded="True">
+                    <Node name="Commands" expanded="True" />
                     <Node name="Queries" expanded="True">
                       <Node name="GetProduct" expanded="True" />
                       <Node name="GetProducts" expanded="True" />
@@ -45,7 +37,6 @@
                 </Node>
               </Node>
               <Node name="Controller" expanded="True" />
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Queries.GetCustomerPay;
 using Task18_BootcampRefactory.Model;
@@ -28,6 +29,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Comm
             data.credit_card_number = request.Data.Attributes.credit_card_number;
 
             _context.SaveChanges();
+            BackgroundJob.Enqueue(() => Console.WriteLine("Put Customer Payment Card has been done."));
             return new GetCustomerPayDTO
             {
                 Success = true,
