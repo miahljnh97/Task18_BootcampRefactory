@@ -80,6 +80,8 @@ namespace Task18_BootcampRefactory
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHangfireServer();
+
             app.UseHangfireDashboard();
             BackgroundJob.Enqueue(() => Console.WriteLine("Task Run"));
 

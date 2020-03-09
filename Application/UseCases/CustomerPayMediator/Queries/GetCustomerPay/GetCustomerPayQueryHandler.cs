@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Model;
 
@@ -20,24 +21,29 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Quer
 
             if (data == null)
             {
-                data = null;
+                BackgroundJob.Enqueue(() => Console.WriteLine("Customer Payment Card by Id is null."));
+                return null;
             }
-
-            return new GetCustomerPayDTO
+            else
             {
-                Success = true,
-                Message = "Success retreiving data",
-                Data = new CustomerPayData
+                BackgroundJob.Enqueue(() => Console.WriteLine("Customer Payment Card by Id retreived."));
+                return new GetCustomerPayDTO
                 {
-                    Id = data.Id,
-                    Customer_id = data.customer_id,
-                    Name_on_card = data.name_on_card,
-                    Exp_month = data.exp_month,
-                    Exp_year = data.exp_year,
-                    Postal_code = data.postal_code,
-                    Credit_card_number = data.credit_card_number
-                }
-            };
+                    Success = true,
+                    Message = "Success retreiving data",
+                    Data = new CustomerPayData
+                    {
+                        Id = data.Id,
+                        Customer_id = data.customer_id,
+                        Name_on_card = data.name_on_card,
+                        Exp_month = data.exp_month,
+                        Exp_year = data.exp_year,
+                        Postal_code = data.postal_code,
+                        Credit_card_number = data.credit_card_number
+                    }
+                };
+            }
+            
         }
     }
 }

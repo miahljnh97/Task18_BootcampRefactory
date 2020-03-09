@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Task18_BootcampRefactory.Model;
 
@@ -21,21 +22,25 @@ namespace Task18_BootcampRefactory.Application.UseCases.ProductMediator.Queries.
 
             if (data == null)
             {
-                data = null;
+                BackgroundJob.Enqueue(() => Console.WriteLine("Product by Id is null."));
+                return null;
             }
-
-            return new GetProductDTO
+            else
             {
-                Success = true,
-                Message = "Success retreiving data",
-                Data = new ProductData
+                BackgroundJob.Enqueue(() => Console.WriteLine("Product by Id retreived."));
+                return new GetProductDTO
                 {
-                    Id = data.Id,
-                    name = data.name,
-                    merchant_id = data.merchant_id,
-                    price = data.price
-                }
-            };
+                    Success = true,
+                    Message = "Success retreiving data",
+                    Data = new ProductData
+                    {
+                        Id = data.Id,
+                        name = data.name,
+                        merchant_id = data.merchant_id,
+                        price = data.price
+                    }
+                };
+            }
         }
     }
 }

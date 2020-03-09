@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries.GetMerchant;
@@ -36,6 +37,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.MerchantMediator.Queries
                 });
             }
 
+            BackgroundJob.Enqueue(() => Console.WriteLine("Merchant data retreived."));
             return new GetMerchantsDTO
             {
                 Success = true,

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Task18_BootcampRefactory.Application.UseCases.ProductMediator.Queries.GetProduct;
@@ -35,6 +36,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.ProductMediator.Queries.
                 });
             }
 
+            BackgroundJob.Enqueue(() => Console.WriteLine("Product data retreived."));
             return new GetProductsDTO
             {
                 Success = true,

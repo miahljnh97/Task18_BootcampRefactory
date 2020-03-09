@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Hangfire;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Queries.GetCustomerPay;
@@ -37,6 +38,7 @@ namespace Task18_BootcampRefactory.Application.UseCases.CustomerPayMediator.Quer
                 });
             }
 
+            BackgroundJob.Enqueue(() => Console.WriteLine("Customer Payment Card data retreived."));
             return new GetCustomerPaysDTO
             {
                 Success = true,
