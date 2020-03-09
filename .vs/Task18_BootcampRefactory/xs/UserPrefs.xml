@@ -1,42 +1,18 @@
 ﻿<Properties StartupConfiguration="{007BA54F-CA32-424F-AEBB-C2A374B592E9}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="appsettings.json">
     <Files>
-      <File FileName="Application/UseCases/CustomerMediator/Commands/DeleteCustomerCommandHandler.cs" Line="31" Column="66" />
-      <File FileName="Application/UseCases/CustomerPayMediator/Commands/DeleteCustomerPayCommandHandler.cs" Line="32" Column="86" />
-      <File FileName="Application/UseCases/MerchantMediator/Commands/DeleteMerchantCommandHandler.cs" Line="31" Column="73" />
-      <File FileName="Application/UseCases/ProductMediator/Commands/DeleteProductCommandHandler.cs" Line="32" Column="72" />
-      <File FileName="Application/UseCases/CustomerMediator/Commands/PutCustomerCommandHandler.cs" Line="32" Column="16" />
       <File FileName="Application/UseCases/CustomerPayMediator/Commands/PutCustomerPayCommandHandler.cs" Line="32" Column="23" />
-      <File FileName="Startup.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="appsettings.json" Line="15" Column="1" />
+      <File FileName="Application/UseCases/CustomerMediator/Queries/GetCustomers/GetCustomersQuery.cs" />
+      <File FileName="Startup.cs" Line="64" Column="6" NotebookId="1" />
+      <File FileName="appsettings.Development.json" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Task18_BootcampRefactory" expanded="True">
             <Node name="Task18_BootcampRefactory" expanded="True">
-              <Node name="Application" expanded="True">
-                <Node name="UseCases" expanded="True">
-                  <Node name="CustomerMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                  </Node>
-                  <Node name="CustomerPayMediator" expanded="True">
-                    <Node name="Commands" expanded="True">
-                      <Node name="PutCustomerPayCommandHandler.cs" selected="True" />
-                    </Node>
-                  </Node>
-                  <Node name="MerchantMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                  </Node>
-                  <Node name="ProductMediator" expanded="True">
-                    <Node name="Commands" expanded="True" />
-                    <Node name="Queries" expanded="True">
-                      <Node name="GetProduct" expanded="True" />
-                      <Node name="GetProducts" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Controller" expanded="True" />
+              <Node name="appsettings.json" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>

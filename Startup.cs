@@ -44,7 +44,7 @@ namespace Task18_BootcampRefactory
             services.AddMediatR(typeof(GetCustomerQueryHandler).GetTypeInfo().Assembly);
 
             services.AddDbContext<Task18Context>(opt
-            => opt.UseNpgsql("Host = 127.0.0.1; Username = postgres; Password = docker; Database = fluentValidation_db"));
+            => opt.UseNpgsql(Configuration.GetConnectionString("NpgsqlConnection")));
 
 
             services.AddAuthentication(options => {
@@ -69,7 +69,7 @@ namespace Task18_BootcampRefactory
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(requestValidator<,>));
 
             services.AddHangfire(configuration => configuration
-            .UsePostgreSqlStorage("Host = 127.0.0.1; Username = postgres; Password = docker; Database = backgroundService_db"));
+            .UsePostgreSqlStorage(Configuration.GetConnectionString("HangfireConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

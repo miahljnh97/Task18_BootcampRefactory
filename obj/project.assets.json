@@ -5650,7 +5650,7 @@
       "outputPath": "/Users/user/Projects/Task18_BootcampRefactory/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/user/.nuget/NuGet/NuGet.Config"
+        "/Users/user/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
